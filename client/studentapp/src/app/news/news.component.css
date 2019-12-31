@@ -1,0 +1,16 @@
+#news {
+  list-style-type: none;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0;
+  padding-bottom: 0px;
+  /*overflow: scroll;*/
+  /*height: 100%;*/
+  border-top: #111111 1px solid;
+  /*border-bottom: #111111 1px solid;*/
+}
+
+.new {
+  padding: 5px;
+  border: #111111 1px solid;
+}
