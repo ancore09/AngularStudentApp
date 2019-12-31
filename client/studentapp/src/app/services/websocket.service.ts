@@ -7,32 +7,37 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class WebsocketService {
+export class WebsocketService{
 
   private socket;
+  private observable;
+  private observer;
 
   constructor() { }
 
   connect(): Rx.Subject<MessageEvent> {
+    console.log('connect');
     this.socket = io(environment.ws_url);
 
-    const observable = new Observable(observer => {
+    // tslint:disable-next-line:no-shadowed-variable
+    this.observable = new Observable(observer => {
       this.socket.on('message', (data) => {
         console.log('Mes received!');
+        // console.log(data);
         observer.next(data);
       });
       return () => {
-        this.socket.disconnect();
+        // this.socket.disconnect();
       };
     });
 
-    const observer = {
+    this.observer = {
       next: (data: Object) => {
         this.socket.emit('message', data);
         // console.log(data);
       }
     };
 
-    return Rx.Subject.create(observer, observable);
+    return Rx.Subject.create(this.observer, this.observable);
   }
 }

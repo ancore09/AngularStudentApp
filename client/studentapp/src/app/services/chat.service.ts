@@ -18,12 +18,13 @@ export class Msg {
 @Injectable({
   providedIn: 'root'
 })
-export class ChatService {
+export class ChatService{
   public msgs: Msg[] = [];
 
   messages: Subject<any>;
 
   constructor(private wsService: WebsocketService) {
+    console.log('ChatConnect');
     this.messages = wsService
       .connect() as Subject<any>;
     map((response: any): any => {

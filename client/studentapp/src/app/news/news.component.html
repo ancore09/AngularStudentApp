@@ -30,46 +30,16 @@
 <!--  </ul>-->
 <!--</nav>-->
 <div class="box" id="news">
-  <div class="new">
-    <p style="font-weight: 900">Lorem ipsum dolor.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium architecto aspernatur consequatur cumque cupiditate dolor, doloremque facilis, harum ipsum iure laboriosam molestias nam nihil nostrum pariatur possimus quasi quia tempore ullam! Corporis culpa cupiditate dolorum esse facilis libero maiores, obcaecati perferendis quae quam quia quo repudiandae tempora, temporibus voluptates!</p>
-    <p style="font-weight: 500; font-style: italic">Lorem ipsum.</p>
-  </div>
-  <div class="new">
-    <p style="font-weight: 900">Lorem ipsum dolor.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium architecto aspernatur consequatur cumque cupiditate dolor, doloremque facilis, harum ipsum iure laboriosam molestias nam nihil nostrum pariatur possimus quasi quia tempore ullam! Corporis culpa cupiditate dolorum esse facilis libero maiores, obcaecati perferendis quae quam quia quo repudiandae tempora, temporibus voluptates!</p>
-    <p style="font-weight: 500; font-style: italic">Lorem ipsum.</p>
-  </div>
-  <div class="new">
-    <p style="font-weight: 900">Lorem ipsum dolor.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium architecto aspernatur consequatur cumque cupiditate dolor, doloremque facilis, harum ipsum iure laboriosam molestias nam nihil nostrum pariatur possimus quasi quia tempore ullam! Corporis culpa cupiditate dolorum esse facilis libero maiores, obcaecati perferendis quae quam quia quo repudiandae tempora, temporibus voluptates!</p>
-    <p style="font-weight: 500; font-style: italic">Lorem ipsum.</p>
-  </div>
-  <div class="new">
-    <p style="font-weight: 900">Lorem ipsum dolor.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium architecto aspernatur consequatur cumque cupiditate dolor, doloremque facilis, harum ipsum iure laboriosam molestias nam nihil nostrum pariatur possimus quasi quia tempore ullam! Corporis culpa cupiditate dolorum esse facilis libero maiores, obcaecati perferendis quae quam quia quo repudiandae tempora, temporibus voluptates!</p>
-    <p style="font-weight: 500; font-style: italic">Lorem ipsum.</p>
-  </div>
-  <div class="new">
-    <p style="font-weight: 900">Lorem ipsum dolor.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium architecto aspernatur consequatur cumque cupiditate dolor, doloremque facilis, harum ipsum iure laboriosam molestias nam nihil nostrum pariatur possimus quasi quia tempore ullam! Corporis culpa cupiditate dolorum esse facilis libero maiores, obcaecati perferendis quae quam quia quo repudiandae tempora, temporibus voluptates!</p>
-    <p style="font-weight: 500; font-style: italic">Lorem ipsum.</p>
-  </div>
-  <div class="new">
-    <p style="font-weight: 900">Lorem ipsum dolor.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium architecto aspernatur consequatur cumque cupiditate dolor, doloremque facilis, harum ipsum iure laboriosam molestias nam nihil nostrum pariatur possimus quasi quia tempore ullam! Corporis culpa cupiditate dolorum esse facilis libero maiores, obcaecati perferendis quae quam quia quo repudiandae tempora, temporibus voluptates!</p>
-    <p style="font-weight: 500; font-style: italic">Lorem ipsum.</p>
-  </div>
-  <div class="new">
-    <p style="font-weight: 900">Lorem ipsum dolor.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium architecto aspernatur consequatur cumque cupiditate dolor, doloremque facilis, harum ipsum iure laboriosam molestias nam nihil nostrum pariatur possimus quasi quia tempore ullam! Corporis culpa cupiditate dolorum esse facilis libero maiores, obcaecati perferendis quae quam quia quo repudiandae tempora, temporibus voluptates!</p>
-    <p style="font-weight: 500; font-style: italic">Lorem ipsum.</p>
-  </div>
-  <div class="new">
-    <p style="font-weight: 900">Lorem ipsum dolor.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium architecto aspernatur consequatur cumque cupiditate dolor, doloremque facilis, harum ipsum iure laboriosam molestias nam nihil nostrum pariatur possimus quasi quia tempore ullam! Corporis culpa cupiditate dolorum esse facilis libero maiores, obcaecati perferendis quae quam quia quo repudiandae tempora, temporibus voluptates!</p>
-    <p style="font-weight: 500; font-style: italic">Lorem ipsum.</p>
-  </div>
+    <div class="new" id="new" *ngFor="let new of newserv.News; let i = index" name="tit">
+      <p style="font-weight: 900;">{{new.title}}</p>
+      <p>{{new.body}}</p>
+      <p style="font-weight: normal; font-style: italic;">{{new.epilogue}}</p>
+    </div>
+<!--  <div class="new">-->
+<!--    <p style="font-weight: 900">Lorem ipsum dolor.</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium architecto aspernatur consequatur cumque cupiditate dolor, doloremque facilis, harum ipsum iure laboriosam molestias nam nihil nostrum pariatur possimus quasi quia tempore ullam! Corporis culpa cupiditate dolorum esse facilis libero maiores, obcaecati perferendis quae quam quia quo repudiandae tempora, temporibus voluptates!</p>-->
+<!--    <p style="font-weight: 500; font-style: italic">Lorem ipsum.</p>-->
+<!--  </div>-->
 </div>
 <!--<script src="js/jquery.min.js"></script>-->
 <!--<script src="js/util.js"></script>-->

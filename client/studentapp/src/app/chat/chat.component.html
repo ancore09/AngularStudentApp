@@ -30,39 +30,41 @@
 <!--    <li><a href="table.html">Table</a></li>-->
 <!--  </ul>-->
 <!--</nav>-->
+<input id="n" autocomplete="off" #nick/>
 <ul class="alt" id="messages">
-  <li>Lorem ipsum dolor.</li>
-  <li>Lorem ipsum dolor sit amet, consectetur.</li>
-  <li>Lorem ipsum dolor sit.</li>
-  <li>Lorem ipsum dolor.</li>
-  <li>Lorem ipsum dolor sit amet, consectetur.</li>
-  <li>Lorem ipsum dolor sit.</li>
-  <li>Lorem ipsum dolor.</li>
-  <li>Lorem ipsum dolor sit amet, consectetur.</li>
-  <li>Lorem ipsum dolor sit.</li>
-  <li>Lorem ipsum dolor.</li>
-  <li>Lorem ipsum dolor sit amet, consectetur.</li>
-  <li>Lorem ipsum dolor sit.</li>
-  <li>Lorem ipsum dolor.</li>
-  <li>Lorem ipsum dolor sit amet, consectetur.</li>
-  <li>Lorem ipsum dolor sit.</li>
-  <li>Lorem ipsum dolor.</li>
-  <li>Lorem ipsum dolor sit amet, consectetur.</li>
-  <li>Lorem ipsum dolor sit.</li>
-  <li>Lorem ipsum dolor.</li>
-  <li>Lorem ipsum dolor sit amet, consectetur.</li>
-  <li>Lorem ipsum dolor sit.</li>
-  <li>Lorem ipsum dolor.</li>
-  <li>Lorem ipsum dolor sit amet, consectetur.</li>
-  <li>Lorem ipsum dolor sit.</li>
+  <app-message *ngFor="let msg of chat.msgs; let i = index" [message]="msg"></app-message>
+<!--  <li>Lorem ipsum dolor.</li>-->
+<!--  <li>Lorem ipsum dolor sit amet, consectetur.</li>-->
+<!--  <li>Lorem ipsum dolor sit.</li>-->
+<!--  <li>Lorem ipsum dolor.</li>-->
+<!--  <li>Lorem ipsum dolor sit amet, consectetur.</li>-->
+<!--  <li>Lorem ipsum dolor sit.</li>-->
+<!--  <li>Lorem ipsum dolor.</li>-->
+<!--  <li>Lorem ipsum dolor sit amet, consectetur.</li>-->
+<!--  <li>Lorem ipsum dolor sit.</li>-->
+<!--  <li>Lorem ipsum dolor.</li>-->
+<!--  <li>Lorem ipsum dolor sit amet, consectetur.</li>-->
+<!--  <li>Lorem ipsum dolor sit.</li>-->
+<!--  <li>Lorem ipsum dolor.</li>-->
+<!--  <li>Lorem ipsum dolor sit amet, consectetur.</li>-->
+<!--  <li>Lorem ipsum dolor sit.</li>-->
+<!--  <li>Lorem ipsum dolor.</li>-->
+<!--  <li>Lorem ipsum dolor sit amet, consectetur.</li>-->
+<!--  <li>Lorem ipsum dolor sit.</li>-->
+<!--  <li>Lorem ipsum dolor.</li>-->
+<!--  <li>Lorem ipsum dolor sit amet, consectetur.</li>-->
+<!--  <li>Lorem ipsum dolor sit.</li>-->
+<!--  <li>Lorem ipsum dolor.</li>-->
+<!--  <li>Lorem ipsum dolor sit amet, consectetur.</li>-->
+<!--  <li>Lorem ipsum dolor sit.</li>-->
 </ul>
 <form action="#">
   <div class="row gtr-uniform" id="div">
     <div class="col-6 col-12-xsmall">
-      <input type="text" name="msg" id="mes" value="" placeholder="Message..." />
+      <input type="text" name="msg" id="mes" value="" placeholder="Message..." #inputElement/>
     </div>
     <div class="col-6 col-12-xsmall">
-      <button class="button primary">Send</button>
+      <button class="button primary" (click)="sendMessage(inputElement.value, nick.value)">Send</button>
     </div>
   </div>
 </form>
