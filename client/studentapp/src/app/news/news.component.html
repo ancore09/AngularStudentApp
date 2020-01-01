@@ -29,6 +29,13 @@
 <!--    <li><a href="table.html">Table</a></li>-->
 <!--  </ul>-->
 <!--</nav>-->
+
+<form style="margin: 50px;">
+  <input type="text" name="title" placeholder="title" [(ngModel)]="title">
+  <textarea name="body" cols="30" rows="1" placeholder="body" [(ngModel)]="body"></textarea>
+  <input type="text" name="epil" placeholder="epilogue" [(ngModel)]="epilogue">
+  <button type="button" (click)="Add()">Add</button>
+</form>
 <div class="box" id="news">
     <div class="new" id="new" *ngFor="let new of newserv.News; let i = index" name="tit">
       <p style="font-weight: 900;">{{new.title}}</p>
@@ -41,6 +48,3 @@
 <!--    <p style="font-weight: 500; font-style: italic">Lorem ipsum.</p>-->
 <!--  </div>-->
 </div>
-<!--<script src="js/jquery.min.js"></script>-->
-<!--<script src="js/util.js"></script>-->
-<!--<script src="js/main.js"></script>-->

@@ -24,7 +24,7 @@ export class ChatService{
   messages: Subject<any>;
 
   constructor(private wsService: WebsocketService) {
-    console.log('ChatConnect');
+    // console.log('ChatConnect');
     this.messages = wsService
       .connect() as Subject<any>;
     map((response: any): any => {
@@ -36,7 +36,7 @@ export class ChatService{
     this.msgs.push(msg);
   }
   sendMsg(msg) {
-    console.log(this.msgs);
+    // console.log(this.msgs);
     // this.addMsg(msg);
     this.messages.next(msg);
   }

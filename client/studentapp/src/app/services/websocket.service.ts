@@ -22,7 +22,7 @@ export class WebsocketService{
     // tslint:disable-next-line:no-shadowed-variable
     this.observable = new Observable(observer => {
       this.socket.on('message', (data) => {
-        console.log('Mes received!');
+        // console.log('Mes received!');
         // console.log(data);
         observer.next(data);
       });

@@ -13,6 +13,7 @@ export class NewsComponent implements OnInit {
   constructor(public newserv: NewsService) { }
 
   ngOnInit() {
+    this.newserv.getNews();
   }
 
   Add() {
