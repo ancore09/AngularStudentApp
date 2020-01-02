@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ChatService, Msg} from '../services/chat.service';
 import {Subscription} from 'rxjs';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-chat',
@@ -10,7 +11,7 @@ import {Subscription} from 'rxjs';
 export class ChatComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
-  constructor(private chat: ChatService) { }
+  constructor(private chat: ChatService, private usr: UserService) { }
 
   ngOnInit() {
     console.log(this.chat);
@@ -25,6 +26,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   sendMessage(msg, nick) {
+    nick = this.usr.user.nick;
     const mes = new Msg(nick, msg);
     this.chat.sendMsg(mes);
   }

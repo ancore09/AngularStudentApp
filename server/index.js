@@ -43,6 +43,46 @@ var News = [
     epilogue: 'Once Told me1'}
 ];
 
+var table = [
+  {id: 0,
+    date: '10.10.10',
+    theme: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+    homework: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut' +
+        ' labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ' +
+        'ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    mark: 0,
+    comment: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in ' +
+        'reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa ' +
+        'qui officia deserunt mollit anim id est laborum'},
+  {id: 1,
+    date: '10.10.10',
+    theme: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+    homework: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut' +
+        ' labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ' +
+        'ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    mark: 0,
+    comment: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in ' +
+        'reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa ' +
+        'qui officia deserunt mollit anim id est laborum'},
+  {id: 2,
+    date: '10.10.10',
+    theme: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+    homework: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut' +
+        ' labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ' +
+        'ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    mark: 0,
+    comment: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in ' +
+        'reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa ' +
+        'qui officia deserunt mollit anim id est laborum'}
+];
+
+var Users = [
+  {login: 'some', password: 'body', nick: 'once', marks: [{id: 0, mark: 5}, {id: 1, mark: 3}, {id: 2, mark: 4}]},
+  {login: 'qwe', password: 'body', nick: 'qwerty', marks: [{id: 0, mark: 1}, {id: 1, mark: 3}, {id: 2, mark: 4}]},
+  {login: 'me', password: 'body', nick: 'ME', marks: [{id: 0, mark: 5}, {id: 1, mark: 9}, {id: 2, mark: 4}]},
+  {login: 'boy', password: 'body', nick: 'TOLDME', marks: [{id: 0, mark: 10}, {id: 1, mark: 2}, {id: 2, mark: 4}]}
+]
+
 // app.use(function (req, res, next) {
 //
 //   // Website you wish to allow to connect
@@ -80,6 +120,24 @@ app.get('/test', (req, res) => {
 app.post('/test', (req, res) => {
   News.unshift(req.body);
 });
+
+app.get('/getTableTest', (req, res) => {
+  res.send(JSON.stringify(table));
+});
+
+app.get('/getUserMarksTest', (req, res) => {
+  var login = req.query.login;
+  res.send(Users.find( user => user.login == login).marks)
+})
+
+app.post('/addClass', (req, res) => {
+  table.unshift(req.body);
+});
+
+
+
+
+
 
 app.get('/getMessages', (req, res) => {
   const mongoClient = new MongoClient("mongodb://localhost:27017/", {useNewUrlParser: true});

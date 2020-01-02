@@ -61,7 +61,7 @@
 <form action="#">
   <div class="row gtr-uniform" id="div">
     <div class="col-6 col-12-xsmall">
-      <input type="text" name="msg" id="mes" value="" placeholder="Message..." #inputElement/>
+      <input autocomplete="off" type="text" id="mes" value="" placeholder="Message..." #inputElement/>
     </div>
     <div class="col-6 col-12-xsmall">
       <button class="button primary" (click)="sendMessage(inputElement.value, nick.value)">Send</button>
