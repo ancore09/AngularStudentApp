@@ -42,6 +42,16 @@ export class TableService {
     });
   }
 
+  getUserMarks() {
+    this.http.get<any>(`${environment.ws_url}/authUserTest?login=${this.user.user.login}&pass=${this.user.user.password}`).subscribe(response => {
+      if (response) {
+        if (response.marks) {
+          this.user.user.marks = response.marks;
+        }
+      }
+    });
+  }
+
   getUsers() {
     this.http.get<any>(`${environment.ws_url}/getUsers`).subscribe(response => {
       this.users = response;

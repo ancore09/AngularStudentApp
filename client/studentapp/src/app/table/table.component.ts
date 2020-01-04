@@ -21,6 +21,7 @@ export class TableComponent implements OnInit {
   constructor(private tabl: TableService) { }
 
   ngOnInit() {
+    this.tabl.getUserMarks();
     this.tabl.getTable();
   }
 
