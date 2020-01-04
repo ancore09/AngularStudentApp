@@ -15,7 +15,10 @@ export class AppComponent {
   }
 
   logOut() {
-    this.user.user = null;
+    this.user.user.login = '';
+    this.user.user.password = '';
+    this.user.user.nick = '';
+    if (this.user.isAdmin) { this.user.user.marks = []; }
     this.user.isLogin = false;
     this.user.isAdmin = false;
     this.router.navigate(['/']);

@@ -5,13 +5,13 @@
 #messages {
   display: block;
   list-style-type: none;
-  margin: 50px;
-  margin-top: 20px;
+  margin: 1vw;
+  margin-top: 0px;
   margin-bottom: 0px;
   padding: 0;
   /*padding-bottom: 0px;*/
   overflow: auto;
-  height: 83vh;
+  height: 80vh;
 }
 
 #mes {
@@ -24,9 +24,18 @@
   padding-top: 10px;
 }
 
+form{
+  z-index: 9999;
+  height: 15vh;
+}
+input {
+  margin: 0px;
+  width: 75vw;
+}
+
 button {
-  margin-top: 0px;
-  margin-left: 50px;
+  width: 120px;
+  margin-left: 35vw;
 }
 
 

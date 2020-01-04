@@ -22,7 +22,7 @@ export class NewsService {
   constructor(private http: HttpClient) {}
 
   getNews() {
-    this.http.get<any>('http://localhost:3000/test').subscribe(response => {
+    this.http.get<any>(`${environment.ws_url}/test`).subscribe(response => {
       console.log(response);
       this.News = response;
     });

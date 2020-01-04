@@ -42,6 +42,11 @@ export class TableComponent implements OnInit {
     }, 1);
   }
 
+  toggleAdminView() {
+    alert('To use admin features again you will have to relog to your account');
+    this.tabl.user.isAdmin = false;
+  }
+
   changeClass(id: number, type: string) {
     const newData = prompt(`Enter new ${type}`);
     this.tabl.changeClass(id, type, newData);
