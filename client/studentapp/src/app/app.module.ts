@@ -11,6 +11,7 @@ import { NewsComponent } from './news/news.component';
 import { TableComponent } from './table/table.component';
 import { MessageComponent } from './chat/message/message.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     ChatComponent,
     NewsComponent,
     TableComponent,
-    MessageComponent
+    MessageComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

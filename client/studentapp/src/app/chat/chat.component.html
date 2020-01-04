@@ -30,7 +30,6 @@
 <!--    <li><a href="table.html">Table</a></li>-->
 <!--  </ul>-->
 <!--</nav>-->
-<input id="n" autocomplete="off" #nick/>
 <ul class="alt" id="messages">
   <app-message *ngFor="let msg of chat.msgs; let i = index" [message]="msg"></app-message>
 <!--  <li>Lorem ipsum dolor.</li>-->
@@ -64,7 +63,7 @@
       <input autocomplete="off" type="text" id="mes" value="" placeholder="Message..." #inputElement/>
     </div>
     <div class="col-6 col-12-xsmall">
-      <button class="button primary" (click)="sendMessage(inputElement.value, nick.value)">Send</button>
+      <button class="button primary" (click)="sendMessage(inputElement.value); inputElement.value=''">Send</button>
     </div>
   </div>
 </form>

@@ -55,7 +55,7 @@ var table = [
         'reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa ' +
         'qui officia deserunt mollit anim id est laborum'},
   {id: 1,
-    date: '10.10.10',
+    date: '10.10.13',
     theme: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
     homework: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut' +
         ' labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ' +
@@ -65,7 +65,7 @@ var table = [
         'reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa ' +
         'qui officia deserunt mollit anim id est laborum'},
   {id: 2,
-    date: '10.10.10',
+    date: '10.11.10',
     theme: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
     homework: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut' +
         ' labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ' +
@@ -78,10 +78,12 @@ var table = [
 
 var Users = [
   {login: 'some', password: 'body', nick: 'once', marks: [{id: 0, mark: 5}, {id: 1, mark: 3}, {id: 2, mark: 4}]},
-  {login: 'qwe', password: 'body', nick: 'qwerty', marks: [{id: 0, mark: 1}, {id: 1, mark: 3}, {id: 2, mark: 4}]},
   {login: 'me', password: 'body', nick: 'ME', marks: [{id: 0, mark: 5}, {id: 1, mark: 9}, {id: 2, mark: 4}]},
-  {login: 'boy', password: 'body', nick: 'TOLDME', marks: [{id: 0, mark: 10}, {id: 1, mark: 2}, {id: 2, mark: 4}]}
-]
+  {login: 'boy', password: 'body', nick: 'TOLDME', marks: [{id: 0, mark: 10}, {id: 1, mark: 2}, {id: 2, mark: 4}]},
+  {login: '1', password: '1', nick: 'qwerty', admin: true}
+];
+
+var Messages = [];
 
 // app.use(function (req, res, next) {
 //
@@ -130,9 +132,69 @@ app.get('/getUserMarksTest', (req, res) => {
   res.send(Users.find( user => user.login == login).marks)
 })
 
-app.post('/addClass', (req, res) => {
-  table.unshift(req.body);
+app.put('/changeClass', (req, res) => {
+  var id = req.query.id;
+  var type = req.body.type;
+  var data = req.body.data;
+  console.log(id);
+  console.log(type);
+  console.log(data);
+  switch (type) {
+    case 'date':
+      table.find( lesson => lesson.id == id).date = data;
+      break;
+    case 'theme':
+      table.find( lesson => lesson.id == id).theme = data;
+      break;
+    case 'comment':
+      table.find( lesson => lesson.id == id).comment = data;
+      break;
+    case 'homework':
+      table.find( lesson => lesson.id == id).homework = data;
+      break;
+  }
 });
+
+app.post('/addClass', (req, res) => {
+  table.push(req.body);
+  Users.forEach( user => {
+    if (user.login != '1') {
+      user.marks.push({id: user.marks.length, mark: 0});
+    }
+  });
+});
+
+
+app.get('/authUserTest', (req, res) => {
+  var login = req.query.login;
+  var password = req.query.pass;
+  var user = Users.find(user => user.login == login && user.password == password);
+  if (user) {
+    res.send(user);
+  } else {
+    res.send(false);
+  }
+});
+
+app.get('/getUsers', (req, res) => {
+  var response = Users.slice(0)
+  response.pop();
+  res.send(JSON.stringify(response));
+});
+
+app.put('/putMark', (req, res) => {
+  var id = req.body.id;
+  var data = req.body.data;
+  var login = req.body.login;
+  Users.find(user => user.login === login).marks.find(mark => mark.id === id).mark = data;
+});
+
+app.get('/getMsgs', (req, res) => {
+  res.send(JSON.stringify(Messages));
+});
+
+
+
 
 
 
@@ -200,7 +262,8 @@ io.on('connection', function(socket) {
       // message = message.replace('"', '');
       // message = message.replace('"', '');
       io.emit('message', {type: 'new=message', body: message});
-      console.log(message); 
+      console.log(message);
+      Messages.push(message);
     });
 
     socket.on('disconnect', function() { 

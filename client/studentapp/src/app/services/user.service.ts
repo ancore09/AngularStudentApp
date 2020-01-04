@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 
 export class Mark {
   id: number;
-  mark: symbol;
+  mark: number;
 
-  constructor(id: number, mark: symbol) {
+  constructor(id: number, mark: number) {
     this.id = id;
     this.mark = mark;
   }
@@ -30,12 +30,14 @@ export class User {
 })
 export class UserService {
 
-  user: User = new User('boy', 'body', 'once');
+  user: User = new User('', '', '');
+  isLogin = false;
+  isAdmin = false;
 
-  constructor(private http: HttpClient) {
-    this.http.get<any>(`http://localhost:3000/getUserMarksTest?login=${this.user.login}`).subscribe(response => {
-      console.log(response);
-      this.user.marks = response;
-    });
+  constructor(/*private http: HttpClient*/) {
+    // this.http.get<any>(`http://localhost:3000/getUserMarksTest?login=${this.user.login}`).subscribe(response => {
+    //   console.log(response);
+    //   this.user.marks = response;
+    // });
   }
 }

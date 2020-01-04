@@ -30,7 +30,7 @@
 <!--  </ul>-->
 <!--</nav>-->
 
-<form style="margin: 50px;">
+<form style="margin: 50px;" *ngIf="usr.isAdmin">
   <input type="text" name="title" placeholder="title" [(ngModel)]="title">
   <textarea name="body" cols="30" rows="1" placeholder="body" [(ngModel)]="body"></textarea>
   <input type="text" name="epil" placeholder="epilogue" [(ngModel)]="epilogue">

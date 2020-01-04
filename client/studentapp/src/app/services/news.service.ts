@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 export class New {
   title: string;
@@ -33,7 +34,7 @@ export class NewsService {
     const headers = new HttpHeaders()
       .set('Authorization', 'my-auth-token')
       .set('Content-Type', 'application/json');
-    this.http.post<any>('http://localhost:3000/test', JSON.stringify(ew), {headers}).subscribe(response => {
+    this.http.post<any>(`${environment.ws_url}/test`, JSON.stringify(ew), {headers}).subscribe(response => {
       console.log(response);
     });
     console.log('add');

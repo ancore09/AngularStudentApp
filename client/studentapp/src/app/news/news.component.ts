@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../services/news.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-news',
@@ -10,7 +11,7 @@ export class NewsComponent implements OnInit {
   title: string;
   body: string;
   epilogue: string;
-  constructor(public newserv: NewsService) { }
+  constructor(public newserv: NewsService, private usr: UserService) { }
 
   ngOnInit() {
     this.newserv.getNews();

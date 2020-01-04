@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { WebsocketService } from './websocket.service';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 export class Msg {
   nick: string;
@@ -18,12 +20,12 @@ export class Msg {
 @Injectable({
   providedIn: 'root'
 })
-export class ChatService{
+export class ChatService {
   public msgs: Msg[] = [];
 
   messages: Subject<any>;
 
-  constructor(private wsService: WebsocketService) {
+  constructor(private wsService: WebsocketService, private http: HttpClient) {
     // console.log('ChatConnect');
     this.messages = wsService
       .connect() as Subject<any>;
@@ -34,6 +36,12 @@ export class ChatService{
 
   addMsg(msg) {
     this.msgs.push(msg);
+  }
+
+  loadMsgs() {
+    this.http.get<any>(`${environment.ws_url}/getMsgs`).subscribe(response => {
+      this.msgs = response;
+    });
   }
   sendMsg(msg) {
     // console.log(this.msgs);
