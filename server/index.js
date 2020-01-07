@@ -43,7 +43,7 @@ var News = [
     epilogue: 'Once Told me1'}
 ];
 
-var table = [
+var Table = [
   {id: 0,
     date: '10.10.10',
     theme: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
@@ -124,7 +124,7 @@ app.post('/test', (req, res) => {
 });
 
 app.get('/getTableTest', (req, res) => {
-  res.send(JSON.stringify(table));
+  res.send(JSON.stringify(Table));
 });
 
 app.get('/getUserMarksTest', (req, res) => {
@@ -141,22 +141,22 @@ app.put('/changeClass', (req, res) => {
   console.log(data);
   switch (type) {
     case 'date':
-      table.find( lesson => lesson.id == id).date = data;
+      Table.find( lesson => lesson.id == id).date = data;
       break;
     case 'theme':
-      table.find( lesson => lesson.id == id).theme = data;
+      Table.find( lesson => lesson.id == id).theme = data;
       break;
     case 'comment':
-      table.find( lesson => lesson.id == id).comment = data;
+      Table.find( lesson => lesson.id == id).comment = data;
       break;
     case 'homework':
-      table.find( lesson => lesson.id == id).homework = data;
+      Table.find( lesson => lesson.id == id).homework = data;
       break;
   }
 });
 
 app.post('/addClass', (req, res) => {
-  table.push(req.body);
+  Table.push(req.body);
   Users.forEach( user => {
     if (user.login != '1') {
       user.marks.push({id: user.marks.length, mark: 0});
