@@ -1,0 +1,17 @@
+#togglebtn {
+  width: 100vw;
+  margin-top: 0px;
+}
+
+#toggleJournalbtn {
+  margin-bottom: 10px;
+}
+
+input, textarea {
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+}
+

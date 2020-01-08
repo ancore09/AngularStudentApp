@@ -1,0 +1,50 @@
+<!--<nav>-->
+<!--  <a class="button">News</a>-->
+
+<!--  <a class="button" style="margin-left: 350px" href="chat">Chat</a>-->
+
+<!--  <a class="button" style="margin-left: 500px">Table</a>-->
+
+<!--  <a class="button" style="margin-left: 650px">Profile</a>-->
+<!--</nav>-->
+<!--<div id="news">-->
+<!--  <div id="new" *ngFor="let new of newserv.News; let i = index" name="tit">-->
+<!--    <p style="font-weight: 900;">{{new.title}}</p>-->
+<!--    <p>{{new.body}}</p>-->
+<!--    <p style="font-weight: normal; font-style: italic;">{{new.epilogue}}</p>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<form style="margin: 50px;">-->
+<!--  <input type="text" name="title" placeholder="title" [(ngModel)]="title">-->
+<!--  <textarea name="body" cols="30" rows="1" placeholder="body" [(ngModel)]="body"></textarea>-->
+<!--  <input type="text" name="epil" placeholder="epilogue" [(ngModel)]="epilogue">-->
+<!--  <button type="button" (click)="Add()">Add</button>-->
+<!--</form>-->
+
+<!--<nav id="menu">-->
+<!--  <ul class="links">-->
+<!--    <li><a href="index.html">News</a></li>-->
+<!--    <li><a href="chat.html">Chat</a></li>-->
+<!--    <li><a href="table.html">Table</a></li>-->
+<!--  </ul>-->
+<!--</nav>-->
+
+<form style="margin: 50px;" *ngIf="usr.isAdmin">
+  <input type="text" name="title" placeholder="title" [(ngModel)]="title">
+  <textarea name="body" cols="30" rows="1" placeholder="body" [(ngModel)]="body"></textarea>
+  <input type="text" name="epil" placeholder="epilogue" [(ngModel)]="epilogue">
+  <button type="button" (click)="Add()">Add</button>
+</form>
+<div class="box" id="news">
+    <div class="new" id="new" *ngFor="let new of newserv.News; let i = index" name="tit">
+      <p style="font-weight: 900;">{{new.title}}</p>
+      <p>{{new.body}}</p>
+      <p style="font-weight: normal; font-style: italic;">{{new.epilogue}}</p>
+    </div>
+<!--  <div class="new">-->
+<!--    <p style="font-weight: 900">Lorem ipsum dolor.</p>-->
+<!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium architecto aspernatur consequatur cumque cupiditate dolor, doloremque facilis, harum ipsum iure laboriosam molestias nam nihil nostrum pariatur possimus quasi quia tempore ullam! Corporis culpa cupiditate dolorum esse facilis libero maiores, obcaecati perferendis quae quam quia quo repudiandae tempora, temporibus voluptates!</p>-->
+<!--    <p style="font-weight: 500; font-style: italic">Lorem ipsum.</p>-->
+<!--  </div>-->
+</div>

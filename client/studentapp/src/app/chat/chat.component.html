@@ -1,0 +1,69 @@
+<!--<h1>SocketIO app</h1>-->
+
+<!--<input [(ngModel)]="text" #ctrl="ngModel" required type="text"  />-->
+<!--<p>{{text}}</p>-->
+<!--<button (click)='sendMessage()'>Send</button>-->
+
+<!--<nav>-->
+<!--  <a class="button" href="news">Main</a>-->
+
+<!--  <a class="button" style="margin-left: 350px;">Chat</a>-->
+
+<!--  <a class="button" style="margin-left: 500px;">Table</a>-->
+
+<!--  <a class="button" style="margin-left: 650px;">Profile</a>-->
+<!--</nav>-->
+<!--<ul id="messages">-->
+<!--  <app-message *ngFor="let msg of chat.msgs; let i = index" [message]="msg"></app-message>-->
+<!--</ul>-->
+<!--<form action="">-->
+<!--  <input id="m" autocomplete="off" #inputElement/>-->
+<!--  <input id="n" autocomplete="off" #nick/>-->
+<!--  <button (click)="sendMessage(inputElement.value, nick.value)">Send</button>-->
+<!--</form>-->
+
+
+<!--<nav id="menu">-->
+<!--  <ul class="links">-->
+<!--    <li><a href="index.html">News</a></li>-->
+<!--    <li><a href="chat.html">Chat</a></li>-->
+<!--    <li><a href="table.html">Table</a></li>-->
+<!--  </ul>-->
+<!--</nav>-->
+<ul class="alt" id="messages">
+  <app-message *ngFor="let msg of chat.msgs; let i = index" [message]="msg"></app-message>
+<!--  <li>Lorem ipsum dolor.</li>-->
+<!--  <li>Lorem ipsum dolor sit amet, consectetur.</li>-->
+<!--  <li>Lorem ipsum dolor sit.</li>-->
+<!--  <li>Lorem ipsum dolor.</li>-->
+<!--  <li>Lorem ipsum dolor sit amet, consectetur.</li>-->
+<!--  <li>Lorem ipsum dolor sit.</li>-->
+<!--  <li>Lorem ipsum dolor.</li>-->
+<!--  <li>Lorem ipsum dolor sit amet, consectetur.</li>-->
+<!--  <li>Lorem ipsum dolor sit.</li>-->
+<!--  <li>Lorem ipsum dolor.</li>-->
+<!--  <li>Lorem ipsum dolor sit amet, consectetur.</li>-->
+<!--  <li>Lorem ipsum dolor sit.</li>-->
+<!--  <li>Lorem ipsum dolor.</li>-->
+<!--  <li>Lorem ipsum dolor sit amet, consectetur.</li>-->
+<!--  <li>Lorem ipsum dolor sit.</li>-->
+<!--  <li>Lorem ipsum dolor.</li>-->
+<!--  <li>Lorem ipsum dolor sit amet, consectetur.</li>-->
+<!--  <li>Lorem ipsum dolor sit.</li>-->
+<!--  <li>Lorem ipsum dolor.</li>-->
+<!--  <li>Lorem ipsum dolor sit amet, consectetur.</li>-->
+<!--  <li>Lorem ipsum dolor sit.</li>-->
+<!--  <li>Lorem ipsum dolor.</li>-->
+<!--  <li>Lorem ipsum dolor sit amet, consectetur.</li>-->
+<!--  <li>Lorem ipsum dolor sit.</li>-->
+</ul>
+<form action="#">
+  <div class="row gtr-uniform" id="div">
+    <div class="col-6 col-12-xsmall" id="divIn">
+      <input autocomplete="off" type="text" id="mes" value="" placeholder="Message..." #inputElement/>
+    </div>
+    <div class="col-6 col-12-xsmall">
+      <button class="button primary" (click)="sendMessage(inputElement.value); inputElement.value=''">Send</button>
+    </div>
+  </div>
+</form>

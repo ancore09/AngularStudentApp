@@ -1,0 +1,18 @@
+* {
+  margin: 10px;
+  margin-left: 12.5vw;
+}
+
+#log {
+  margin-top: 30vh;
+  width: 50vw;
+}
+
+#pass {
+  width: 50vw;
+}
+
+#loginbtn {
+  width: 25vw;
+  margin-left: 25vw;
+}

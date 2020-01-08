@@ -1,0 +1,10 @@
+<header *ngIf="!isAuth()" id="header">
+  <a class="logo" routerLink="table">StudentApp</a>
+  <nav>
+    <a routerLink="news">News</a>
+    <a routerLink="chat">Chat</a>
+    <a routerLink="table">Table</a>
+    <a (click)="logOut()">LogOut</a>
+  </nav>
+</header>
+<router-outlet></router-outlet>
