@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {CookieService} from 'ngx-cookie-service';
 
 export class Mark {
   id: number;
@@ -33,13 +34,17 @@ export class User {
 export class UserService {
 
   user: User = new User('', '', '', '');
+  cookies = false;
   isLogin = false;
   isAdmin = false;
 
-  constructor(/*private http: HttpClient*/) {
-    // this.http.get<any>(`http://localhost:3000/getUserMarksTest?login=${this.user.login}`).subscribe(response => {
-    //   console.log(response);
-    //   this.user.marks = response;
-    // });
+  constructor(private cookie: CookieService) {
+    if (cookie.get('login') && cookie.get('pass') && cookie.get('course')) {
+      this.cookies = true;
+      this.user.course = cookie.get('course');
+      this.user.nick = cookie.get('nick');
+      this.user.login = cookie.get('login');
+      this.user.password = cookie.get('pass');
+    }
   }
 }

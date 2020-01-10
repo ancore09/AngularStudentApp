@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ChatService } from './services/chat.service';
 import { WebsocketService } from './services/websocket.service';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
@@ -28,7 +29,7 @@ import { AuthComponent } from './auth/auth.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ChatService, WebsocketService],
+  providers: [ChatService, WebsocketService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

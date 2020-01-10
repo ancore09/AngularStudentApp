@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {UserService} from '../services/user.service';
 import {Router} from '@angular/router';
 import { environment } from '../../environments/environment';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-auth',
@@ -15,9 +16,13 @@ export class AuthComponent implements OnInit {
   password: string;
   course: string;
 
-  constructor(private http: HttpClient, private user: UserService, private router: Router) { }
+  constructor(private http: HttpClient, private user: UserService, private router: Router, private cookie: CookieService) {
+  }
 
   ngOnInit() {
+    if (this.user.cookies) {
+      this.router.navigate(['/news']);
+    }
   }
 
   Auth() {
@@ -32,6 +37,10 @@ export class AuthComponent implements OnInit {
         if (response.admin) { this.user.isAdmin = true; }
         console.log(this.user.user);
         this.user.isLogin = true;
+        this.cookie.set('login', this.login);
+        this.cookie.set('pass', this.password);
+        this.cookie.set('course', this.course);
+        this.cookie.set('nick', response.nick);
         this.router.navigate(['/news']);
       } else {
         alert('Invalid login or password');
